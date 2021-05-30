@@ -22,7 +22,7 @@ const PokemonDetailedInfoPage = (props) => {
 
   const pokemonInfo = useMemo(
     () => pokemonListReducer.pokemonList.find((pokemon) => pokemon.id === id),
-    [pokemonListReducer]
+    [pokemonListReducer, id]
   );
 
   return (
@@ -34,6 +34,7 @@ const PokemonDetailedInfoPage = (props) => {
           src={`${pokemonInfo.imageUrlHiRes}`}
           onLoad={() => setIsImageLoaded(true)}
           width="500"
+          alt="Pokemon Card"
         />
       </ImageContainer>
       {!isImageLoaded && (

@@ -14,7 +14,7 @@ function* fetchData(url, fetchDataAction, successAction, errorAction) {
     const pokemonsData = yield call(fetchCall, url);
     yield put(successAction(pokemonsData));
   } catch (error) {
-    yield put(errorAction());
+    yield put(errorAction(error));
   }
 }
 

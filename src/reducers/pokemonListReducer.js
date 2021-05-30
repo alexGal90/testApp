@@ -27,6 +27,7 @@ const pokemonListReducer = (state = initialState, action) => {
     case GET_POKEMON_CARDS_ERROR:
       return {
         ...state,
+        message: action.message.message,
         loading: false,
         error: true,
       };

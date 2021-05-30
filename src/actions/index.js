@@ -31,8 +31,9 @@ export const getPokemonCardsSuccess = (data) => ({
   data,
 });
 
-export const getPokemonCardsError = () => ({
+export const getPokemonCardsError = (error) => ({
   type: GET_POKEMON_CARDS_ERROR,
+  message: error,
 });
 
 export const fetchPokemonSubtype = () => {
@@ -48,8 +49,9 @@ export const getPokemonSubtypeSuccess = (data) => ({
   data,
 });
 
-export const getPokemonSubtypeError = () => ({
+export const getPokemonSubtypeError = (error) => ({
   type: GET_POKEMON_SUBTYPE_ERROR,
+  message: error,
 });
 
 export const fetchPokemonSupertype = () => {
@@ -65,8 +67,9 @@ export const getPokemonSupertypeSuccess = (data) => ({
   data,
 });
 
-export const getPokemonSupertypeError = () => ({
+export const getPokemonSupertypeError = (error) => ({
   type: GET_POKEMON_SUPERTYPE_ERROR,
+  message: error,
 });
 
 export const fetchPokemonRarity = () => {
@@ -82,8 +85,9 @@ export const getPokemonRaritySuccess = (data) => ({
   data,
 });
 
-export const getPokemonRarityError = () => ({
+export const getPokemonRarityError = (error) => ({
   type: GET_POKEMON_RARITY_ERROR,
+  message: error,
 });
 
 export const setFilter = (filters) => ({

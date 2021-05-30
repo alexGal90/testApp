@@ -18,6 +18,7 @@ import {
   LoaderContainer,
 } from "./styles";
 import { getTableData, createSelectOptions } from "./helpers";
+import ServerErrorMessage from "components/ui/ServerErrorMessage";
 
 const PokemonListPage = (props) => {
   const {
@@ -25,10 +26,13 @@ const PokemonListPage = (props) => {
     pokemonListReducer,
     pokemonListReducer: { pokemonList },
     getPokemonSubtypes,
+    subtypeListReducer,
     subtypeListReducer: { subtypeList },
     getPokemonSupertypes,
+    supertypeListReducer,
     supertypeListReducer: { supertypeList },
     getPokemonRarities,
+    rarityListReducer,
     rarityListReducer: { rarityList },
     filterReducer: { filters },
     setFilters,
@@ -106,6 +110,11 @@ const PokemonListPage = (props) => {
   return (
     <PokemonListContainer>
       <PokemonFiltersContainer>
+        {subtypeListReducer.error && (
+          <ServerErrorMessage>
+            Failed to fetch sub type list. Message: {subtypeListReducer.message}
+          </ServerErrorMessage>
+        )}
         <SingleFilterContainer>
           <Select
             closeMenuOnSelect={false}
@@ -115,6 +124,12 @@ const PokemonListPage = (props) => {
             placeholder="Select Sub Type..."
           />
         </SingleFilterContainer>
+        {supertypeListReducer.error && (
+          <ServerErrorMessage>
+            Failed to fetch super type list. Message:{" "}
+            {supertypeListReducer.message}
+          </ServerErrorMessage>
+        )}
         <SingleFilterContainer>
           <Select
             closeMenuOnSelect={false}
@@ -124,6 +139,11 @@ const PokemonListPage = (props) => {
             placeholder="Select Super Type..."
           />
         </SingleFilterContainer>
+        {rarityListReducer.error && (
+          <ServerErrorMessage>
+            Failed to fetch rarities list. Message: {rarityListReducer.message}
+          </ServerErrorMessage>
+        )}
         <SingleFilterContainer>
           <Select
             closeMenuOnSelect={false}
@@ -138,6 +158,10 @@ const PokemonListPage = (props) => {
         <LoaderContainer>
           <Loader type="ThreeDots" color="#00BFFF" height={100} width={100} />
         </LoaderContainer>
+      ) : pokemonListReducer.error ? (
+        <ServerErrorMessage>
+          Failed to fetch rarities list. Message: {pokemonListReducer.message}
+        </ServerErrorMessage>
       ) : (
         <MDBDataTableV5
           hover

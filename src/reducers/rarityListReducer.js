@@ -27,6 +27,7 @@ const rarityListReducer = (state = initialState, action) => {
     case GET_POKEMON_RARITY_ERROR:
       return {
         ...state,
+        message: action.message.message,
         loading: false,
         error: true,
       };

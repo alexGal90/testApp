@@ -27,6 +27,7 @@ const subtypeListReducer = (state = initialState, action) => {
     case GET_POKEMON_SUBTYPE_ERROR:
       return {
         ...state,
+        message: action.message.message,
         loading: false,
         error: true,
       };

@@ -27,6 +27,7 @@ const supertypeListReducer = (state = initialState, action) => {
     case GET_POKEMON_SUPERTYPE_ERROR:
       return {
         ...state,
+        message: action.message.message,
         loading: false,
         error: true,
       };

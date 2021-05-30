@@ -21,3 +21,8 @@ export const CustomInput = styled.input`
     border: 1px solid #44c4e7;
   }
 `;
+
+export const ServerErrorMessageContainer = styled.div`
+  color: #fc3503;
+  padding: 4px;
+`;
